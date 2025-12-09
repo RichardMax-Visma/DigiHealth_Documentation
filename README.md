@@ -37,9 +37,9 @@ Bidirectional administrative messaging between citizens and healthcare providers
 
 📁 [Documentation](./diagrams/Ekontakt/Ekontakt_README.md)
 
-| Diagram | Description |
-| ------- | ----------- |
-| [Flow](./diagrams/Ekontakt/Ekontakt_Flow.mmd) | AMQP message flow |
+| Diagram                                             | Description         |
+| --------------------------------------------------- | ------------------- |
+| [Flow](./diagrams/Ekontakt/Ekontakt_Flow.mmd)       | AMQP message flow   |
 | [Classes](./diagrams/Ekontakt/Ekontakt_Classes.mmd) | Message data models |
 
 ---
@@ -50,10 +50,10 @@ Authentication and environment reference for NHN integrations.
 
 📁 [HelseID Folder](./diagrams/HelseID/)
 
-| Document | Description |
-| -------- | ----------- |
-| [Authentication](./diagrams/HelseID/HelseID_Auth.md) | System-to-system authentication (deadline: 1.12.2025) |
-| [Test Environments](./diagrams/HelseID/Test_Environments.md) | MAS-02, TEST1, TEST2, QA, Prodkopi, PROD |
+| Document                                                     | Description                                           |
+| ------------------------------------------------------------ | ----------------------------------------------------- |
+| [Authentication](./diagrams/HelseID/HelseID_Auth.md)         | System-to-system authentication (deadline: 1.12.2025) |
+| [Test Environments](./diagrams/HelseID/Test_Environments.md) | MAS-02, TEST1, TEST2, QA, Prodkopi, PROD              |
 
 ---
 
