@@ -10,10 +10,10 @@ Check if citizens are digitally active on Helsenorge.
 
 📁 [Documentation](./DigiHealth/APIs/HelsenorgeAktivSjekken/HelsenorgeAktivSjekken_README.md)
 
-| Diagram                                                                                | Description             |
-| -------------------------------------------------------------------------------------- | ----------------------- |
-| [Flow](./DigiHealth/APIs/HelsenorgeAktivSjekken/HelsenorgeAktivSjekken_Flow.mmd)       | REST API sequence       |
-| [Classes](./DigiHealth/APIs/HelsenorgeAktivSjekken/HelsenorgeAktivSjekken_Classes.mmd) | Request/Response models |
+| Diagram                                                                                  | Description             |
+| ---------------------------------------------------------------------------------------- | ----------------------- |
+| [Flow](./DigiHealth/APIs/HelsenorgeAktivSjekken/HelsenorgeAktivSjekken_Flow.mmd)         | REST API sequence       |
+| [Class Relations](./DigiHealth/APIs/HelsenorgeAktivSjekken/Relations/ClassRelations.mmd) | Request/Response models |
 
 ---
 
@@ -51,10 +51,10 @@ Authentication and environment reference for NHN integrations.
 
 📁 [HelseID Folder](./DigiHealth/Authentication/HelseID/)
 
-| Document                                                                      | Description                                           |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------- |
-| [Authentication](./DigiHealth/Authentication/HelseID/HelseID_Auth.md)         | System-to-system authentication (deadline: 1.12.2025) |
-| [Test Environments](./DigiHealth/Authentication/HelseID/Test_Environments.md) | MAS-02, TEST1, TEST2, QA, Prodkopi, PROD              |
+| Document                                                                      | Description                               |
+| ----------------------------------------------------------------------------- | ----------------------------------------- |
+| [Authentication](./DigiHealth/Authentication/HelseID/HelseID_Auth.md)         | System-to-system authentication (HelseID) |
+| [Test Environments](./DigiHealth/Authentication/HelseID/Test_Environments.md) | MAS-02, TEST1, TEST2, QA, Prodkopi, PROD  |
 
 ---
 
