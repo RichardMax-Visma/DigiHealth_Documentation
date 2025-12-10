@@ -14,7 +14,7 @@ Determines whether a citizen is digitally active on Helsenorge and how they can 
 | `fnrListe` | string[] | Yes      | List of national ID numbers (max 1000 items). |
 | `omraade`  | int      | Yes      | Context area for the check.                   |
 
-Class definitions: `Classes/Request.mmd`, `Classes/Omraade.mmd`.
+Class definitions: [Request](Classes/Request.mmd), [Omraade](Classes/Omraade.mmd).
 
 ## Omraade enum
 
@@ -23,11 +23,15 @@ Class definitions: `Classes/Request.mmd`, `Classes/Omraade.mmd`.
 | `3`   | HELSEHJELP | Helsehjelp | Healthcare                          |
 | `6`   | UNGDOM     | Ungdom     | Youth (13+, school health services) |
 
+Class definition: [Omraade](Classes/Omraade.mmd).
+
 ## Response body
 
 | Field          | Type                       | Description                           |
 | -------------- | -------------------------- | ------------------------------------- |
 | `erAktivListe` | Map<string, ErAktivStatus> | Map of national ID → activity status. |
+
+Map structure is illustrated in [Relations/ClassRelations.mmd](Relations/ClassRelations.mmd).
 
 ### ErAktivStatus
 
@@ -37,7 +41,7 @@ Class definitions: `Classes/Request.mmd`, `Classes/Omraade.mmd`.
 | `erAktivViaAndre` | bool | Er aktiv via andre | Citizen is active via another person (representative/guardian).    |
 | `tildeltFullmakt` | bool | Tildelt fullmakt   | Citizen has granted a power of attorney or lacks consent capacity. |
 
-Class definitions: `Classes/Response.mmd`, `Classes/ErAktivStatus.mmd`.
+Class definitions: [Response](Classes/Response.mmd), [ErAktivStatus](Classes/ErAktivStatus.mmd).
 
 ## Business rules
 
@@ -82,8 +86,8 @@ Content-Type: application/json
 
 ## Diagrams
 
-- Class relations: see `Relations/ClassRelations.mmd` (Mermaid class diagram).
-- Call flow: see `HelsenorgeAktivSjekken_Flow.mmd` (Mermaid sequence diagram).
+- Class relations: see [Relations/ClassRelations.mmd](Relations/ClassRelations.mmd) (Mermaid class diagram).
+- Call flow: see [HelsenorgeAktivSjekken_Flow.mmd](HelsenorgeAktivSjekken_Flow.mmd) (Mermaid sequence diagram).
 
 Use these diagrams alongside the text above; update them when fields or steps change.
 
