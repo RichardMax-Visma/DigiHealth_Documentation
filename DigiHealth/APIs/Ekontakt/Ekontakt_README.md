@@ -33,7 +33,7 @@ AMQP-based bidirectional messaging between citizens and healthcare providers via
 
 Classes: [EkontaktMelding](Classes/EkontaktMelding.mmd), [Vedlegg](Classes/Vedlegg.mmd), [ForespørselFraInnbygger](Classes/ForespørselFraInnbygger.mmd), [SvarFraHelsekontakt](Classes/SvarFraHelsekontakt.mmd), [ForespørselFraHelsekontakt](Classes/ForespørselFraHelsekontakt.mmd), [SvarFraInnbygger](Classes/SvarFraInnbygger.mmd).
 
-Core fields:
+Core fields ([EkontaktMelding](Classes/EkontaktMelding.mmd)):
 
 | Norwegian    | English     | Description                   |
 | ------------ | ----------- | ----------------------------- |
@@ -50,7 +50,7 @@ Core fields:
 | tjeneste     | Service     | Healthcare service identifier |
 | sendt        | Sent        | Send timestamp                |
 
-## Attachments
+## [Attachments](Classes/Vedlegg.mmd)
 
 | Format | MIME Type       | Notes     |
 | ------ | --------------- | --------- |

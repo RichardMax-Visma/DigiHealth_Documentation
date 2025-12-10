@@ -25,7 +25,7 @@
 
 Classes: [MsgHead](Classes/MsgHead.mmd), [EpisodeOfCare](Classes/EpisodeOfCare.mmd), [CareTeam](Classes/CareTeam.mmd), [Participant](Classes/Participant.mmd), [AccessSecurity](Classes/AccessSecurity.mmd).
 
-### MsgHead (Header)
+### [MsgHead](Classes/MsgHead.mmd) (Header)
 
 Contains sender, receiver, and patient info. The actual health contact is in the Document section as FHIR resource.
 
@@ -42,7 +42,7 @@ Contains sender, receiver, and patient info. The actual health contact is in the
 
 Uses two FHIR resources:
 
-#### EpisodeOfCare
+#### [EpisodeOfCare](Classes/EpisodeOfCare.mmd)
 
 | Field                | Description                          |
 | -------------------- | ------------------------------------ |
@@ -53,14 +53,14 @@ Uses two FHIR resources:
 | managingOrganization | Healthcare organization              |
 | careTeam             | Contained CareTeam                   |
 
-#### CareTeam (contained)
+#### [CareTeam](Classes/CareTeam.mmd) (contained)
 
 | Field       | Description                        |
 | ----------- | ---------------------------------- |
 | name        | Team/service name                  |
 | participant | List of healthcare personnel/roles |
 
-### AccessSecurity Enum (meta.security)
+### [AccessSecurity](Classes/AccessSecurity.mmd) Enum (meta.security)
 
 For patients aged 12-15, must specify access restrictions:
 

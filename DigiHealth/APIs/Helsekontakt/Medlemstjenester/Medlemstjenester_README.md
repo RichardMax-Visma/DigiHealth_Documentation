@@ -24,21 +24,21 @@ Defines what services members receive.
 
 Core classes: [HealthcareService](Classes/HealthcareService.mmd), [Organization](Classes/Organization.mmd), [Location](Classes/Location.mmd), [Endpoint](Classes/Endpoint.mmd), [Address](Classes/Address.mmd), [Telecom](Classes/Telecom.mmd).
 
-| Resource              | Field               | Description                     | Required |
-| --------------------- | ------------------- | ------------------------------- | -------- |
-| **HealthcareService** | identifier          | Local GUID                      | ✅       |
-|                       | active              | Is active                       |          |
-|                       | name                | Service name (shown to citizen) | ✅       |
-|                       | comment             | Description                     |          |
-|                       | providedBy          | Ref to Organization             | ✅       |
-|                       | endpoint.identifier | Communication partner ID        | ✅       |
-| **Organization**      | identifier          | Org number (e.g., 948 554 062)  | ✅       |
-|                       | name                | Organization name               | ✅       |
-|                       | endpoint.id         | Business ID                     | ✅       |
-| **Location**          | address.line        | Street address                  | ✅       |
-|                       | address.city        | City                            | ✅       |
-|                       | address.postalCode  | Postal code                     | ✅       |
-|                       | telecom.value       | Phone/URL                       |          |
+| Resource                                               | Field               | Description                     | Required |
+| ------------------------------------------------------ | ------------------- | ------------------------------- | -------- |
+| **[HealthcareService](Classes/HealthcareService.mmd)** | identifier          | Local GUID                      | ✅       |
+|                                                        | active              | Is active                       |          |
+|                                                        | name                | Service name (shown to citizen) | ✅       |
+|                                                        | comment             | Description                     |          |
+|                                                        | providedBy          | Ref to Organization             | ✅       |
+|                                                        | endpoint.identifier | Communication partner ID        | ✅       |
+| **[Organization](Classes/Organization.mmd)**           | identifier          | Org number (e.g., 948 554 062)  | ✅       |
+|                                                        | name                | Organization name               | ✅       |
+|                                                        | endpoint.id         | Business ID                     | ✅       |
+| **[Location](Classes/Location.mmd)**                   | address.line        | Street address                  | ✅       |
+|                                                        | address.city        | City                            | ✅       |
+|                                                        | address.postalCode  | Postal code                     | ✅       |
+|                                                        | telecom.value       | Phone/URL                       |          |
 
 ### 2) Send member list (Medlemsliste)
 
@@ -46,12 +46,12 @@ Links members to offerings.
 
 Classes: [Patient](Classes/Patient.mmd), [Contact](Classes/Contact.mmd), [Period](Classes/Period.mmd).
 
-| Field                           | Description                          | Required |
-| ------------------------------- | ------------------------------------ | -------- |
-| identifier                      | National ID (fødselsnummer/d-nummer) | ✅       |
-| contact.organization.identifier | Organization number                  | ✅       |
-| contact.period.start            | Service start date                   | ✅       |
-| contact.period.end              | Service end date                     | ✅       |
+| Field ([Patient](Classes/Patient.mmd)) | Description                          | Required |
+| -------------------------------------- | ------------------------------------ | -------- |
+| identifier                             | National ID (fødselsnummer/d-nummer) | ✅       |
+| contact.organization.identifier        | Organization number                  | ✅       |
+| contact.period.start                   | Service start date                   | ✅       |
+| contact.period.end                     | Service end date                     | ✅       |
 
 ## Diagrams
 

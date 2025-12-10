@@ -12,41 +12,35 @@ Determines whether a citizen is digitally active on Helsenorge and how they can 
 - Machine-to-machine (client credentials) via HelseID with the scope for HelsenorgeAktivSjekken.
 - Send `Authorization: Bearer <token>` on each request.
 
-## Request payload
+## [Request](Classes/Request.mmd) payload
 
 | Field      | Type     | Required | Description                                   |
 | ---------- | -------- | -------- | --------------------------------------------- |
 | `fnrListe` | string[] | Yes      | List of national ID numbers (max 1000 items). |
 | `omraade`  | int      | Yes      | Context area for the check.                   |
 
-Class definitions: [Request](Classes/Request.mmd), [Omraade](Classes/Omraade.mmd).
-
-## Omraade enum
+## [Omraade](Classes/Omraade.mmd) enum
 
 | Value | Name       | Norwegian  | English                             |
 | ----- | ---------- | ---------- | ----------------------------------- |
 | `3`   | HELSEHJELP | Helsehjelp | Healthcare                          |
 | `6`   | UNGDOM     | Ungdom     | Youth (13+, school health services) |
 
-Class definition: [Omraade](Classes/Omraade.mmd).
-
-## Response payload
+## [Response](Classes/Response.mmd) payload
 
 | Field          | Type                       | Description                                   |
 | -------------- | -------------------------- | --------------------------------------------- |
 | `erAktivListe` | Map<string, ErAktivStatus> | Map of national ID (`fnr`) → activity status. |
 
-Map structure and relations: [Relations/ClassRelations.mmd](Relations/ClassRelations.mmd).
+See also: [Relations/ClassRelations.mmd](Relations/ClassRelations.mmd) for the full class diagram.
 
-### ErAktivStatus
+### [ErAktivStatus](Classes/ErAktivStatus.mmd)
 
 | Field             | Type | Norwegian          | English                                                            |
 | ----------------- | ---- | ------------------ | ------------------------------------------------------------------ |
 | `erAktivSelv`     | bool | Er aktiv selv      | Citizen is digitally active themselves (can be reached directly).  |
 | `erAktivViaAndre` | bool | Er aktiv via andre | Citizen is active via another person (representative/guardian).    |
 | `tildeltFullmakt` | bool | Tildelt fullmakt   | Citizen has granted a power of attorney or lacks consent capacity. |
-
-Class definitions: [Response](Classes/Response.mmd), [ErAktivStatus](Classes/ErAktivStatus.mmd).
 
 ## Business rules
 

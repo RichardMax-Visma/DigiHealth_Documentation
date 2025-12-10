@@ -28,7 +28,7 @@ Sends an overview of home care services to citizens via AMQP messaging.
 
 Classes: [MsgHead](Classes/MsgHead.mmd), [MsgInfo](Classes/MsgInfo.mmd), [TjenesteOversikt](Classes/TjenesteOversikt.mmd), [Tjeneste](Classes/Tjeneste.mmd), [RelaterteRoller](Classes/RelaterteRoller.mmd), [Applikasjonskvittering](Classes/Applikasjonskvittering.mmd).
 
-### MsgHead (Header Message)
+### [MsgHead](Classes/MsgHead.mmd) (Header Message)
 
 | Field      | Norwegian   | English                 |
 | ---------- | ----------- | ----------------------- |
@@ -39,13 +39,13 @@ Classes: [MsgHead](Classes/MsgHead.mmd), [MsgInfo](Classes/MsgInfo.mmd), [Tjenes
 | `patient`  | Pasient     | Patient info            |
 | `ack`      | Kvittering  | Acknowledgment settings |
 
-### TjenesteOversikt (Service Overview)
+### [TjenesteOversikt](Classes/TjenesteOversikt.mmd) (Service Overview)
 
 | Field       | Norwegian | English          |
 | ----------- | --------- | ---------------- |
 | `tjenester` | Tjenester | List of services |
 
-### Tjeneste (Service)
+### [Tjeneste](Classes/Tjeneste.mmd) (Service)
 
 | Field                      | Norwegian                 | English                           |
 | -------------------------- | ------------------------- | --------------------------------- |
@@ -54,13 +54,13 @@ Classes: [MsgHead](Classes/MsgHead.mmd), [MsgInfo](Classes/MsgInfo.mmd), [Tjenes
 | `digitalInnbyggertjeneste` | Digital innbyggertjeneste | Is digital citizen service (bool) |
 | `relaterteRoller`          | Relaterte roller          | Related roles/personnel           |
 
-### RelaterteRoller (Related Roles)
+### [RelaterteRoller](Classes/RelaterteRoller.mmd) (Related Roles)
 
 | Field            | Norwegian      | English                   |
 | ---------------- | -------------- | ------------------------- |
 | `helsepersonell` | Helsepersonell | Healthcare personnel list |
 
-### Applikasjonskvittering (Application Receipt)
+### [Applikasjonskvittering](Classes/Applikasjonskvittering.mmd) (Application Receipt)
 
 | Field       | Norwegian   | English                |
 | ----------- | ----------- | ---------------------- |
