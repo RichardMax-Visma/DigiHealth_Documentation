@@ -11,14 +11,16 @@ Mermaid diagrams and documentation for Norsk Helsenett (NHN) integrations.
 
 ## Authentication (prerequisite)
 
-HelseID is required before any API calls. Auth docs live separately under `DigiHealth/Authentication/HelseID/` because every service depends on it.
+- Before calling any NHN APIs, set up auth for both channels: HelseID (tokens) for REST/FHIR and mTLS (certs) for AMQP.
 
-📁 [HelseID Folder](./DigiHealth/Authentication/HelseID/)
+- REST/FHIR (e.g., HelsenorgeAktivSjekken, Helsekontakt Medlemstjenester): OAuth2 client-credentials via HelseID → short-lived bearer tokens per request.
+- AMQP (e.g., E-kontakt, Helsekontakt AMQP flows): mutual TLS with NHN-issued client cert/key plus queue/vhost ACLs → no bearer tokens inside messages.
 
-| Document                                                                      | Description                               |
-| ----------------------------------------------------------------------------- | ----------------------------------------- |
-| [Authentication](./DigiHealth/Authentication/HelseID/HelseID_Auth.md)         | System-to-system authentication (HelseID) |
-| [Test Environments](./DigiHealth/Authentication/HelseID/Test_Environments.md) | MAS-02, TEST1, TEST2, QA, Prodkopi, PROD  |
+Docs: [HelseID Auth](./DigiHealth/Authentication/HelseID_Auth.md) · [AMQP Auth](./DigiHealth/Authentication/AMQP_Auth.md)
+
+## Test Environments
+
+Environment reference and endpoints: [Test Environments](./DigiHealth/Test_Environments/Test_Environments.md) (MAS-02, TEST1, TEST2, QA, Prodkopi, PROD).
 
 ## APIs
 
