@@ -18,10 +18,6 @@ Mermaid diagrams and documentation for Norsk Helsenett (NHN) integrations.
 
 Docs: [HelseID Auth](./DigiHealth/Authentication/HelseID_Auth.md) · [AMQP Auth](./DigiHealth/Authentication/AMQP_Auth.md)
 
-## Test Environments
-
-Environment reference and endpoints: [Test Environments](./DigiHealth/Test_Environments/Test_Environments.md) (MAS-02, TEST1, TEST2, QA, Prodkopi, PROD).
-
 ## APIs
 
 ### HelsenorgeAktivSjekken
@@ -68,6 +64,10 @@ _Prerequisite: run HelsenorgeAktivSjekken to verify the citizen’s digital reac
 | [Provider-initiated](./DigiHealth/APIs/Ekontakt/Relations/ProviderInitiatedRelations.mmd) | Provider → Citizen flow |
 
 ---
+
+## Test Environments
+
+Environment reference and endpoints: [Test Environments](./DigiHealth/Test_Environments/Test_Environments.md) (MAS-02, TEST1, TEST2, QA, Prodkopi, PROD).
 
 ---
 
