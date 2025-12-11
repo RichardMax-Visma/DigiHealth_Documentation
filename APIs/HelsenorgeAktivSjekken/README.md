@@ -82,6 +82,17 @@ See also: [Relations/ClassRelations.mmd](Relations/ClassRelations.mmd) for the f
 | `erAktivViaAndre` | bool | Er aktiv via andre | Citizen is active via another person (representative/guardian).    |
 | `tildeltFullmakt` | bool | Tildelt fullmakt   | Citizen has granted a power of attorney or lacks consent capacity. |
 
+```mermaid
+%% keep in sync with Classes/ErAktivStatus.mmd
+classDiagram
+  class ErAktivStatus {
+    +bool erAktivSelv
+    +bool erAktivViaAndre
+    +bool tildeltFullmakt
+  }
+
+```
+
 Source: [ErAktivStatus.mmd](Classes/ErAktivStatus.mmd)
 
 ## Business rules
