@@ -19,6 +19,16 @@ Determines whether a citizen is digitally active on Helsenorge and how they can 
 | `fnrListe` | string[] | Yes      | List of national ID numbers (max 1000 items). |
 | `omraade`  | int      | Yes      | Context area for the check.                   |
 
+```mermaid
+%% keep in sync with Classes/Request.mmd
+classDiagram
+  class Request {
+    +string[] fnrListe
+    +int omraade
+  }
+
+```
+
 ## [Omraade](Classes/Omraade.mmd) enum
 
 | Value | Name       | Norwegian  | English                             |
@@ -32,6 +42,25 @@ Determines whether a citizen is digitally active on Helsenorge and how they can 
 | -------------- | -------------------------- | --------------------------------------------- |
 | `erAktivListe` | Map<string, ErAktivStatus> | Map of national ID (`fnr`) → activity status. |
 
+```mermaid
+%% keep in sync with Classes/Response.mmd and Classes/ErAktivStatus.mmd
+classDiagram
+  class Response {
+    +Map~String, ErAktivStatus~ erAktivListe
+  }
+
+  note for Response "erAktivListe key = fnr (national ID)"
+
+  class ErAktivStatus {
+    +bool erAktivSelv
+    +bool erAktivViaAndre
+    +bool tildeltFullmakt
+  }
+
+  Response *-- ErAktivStatus : contains
+
+```
+
 See also: [Relations/ClassRelations.mmd](Relations/ClassRelations.mmd) for the full class diagram.
 
 ### [ErAktivStatus](Classes/ErAktivStatus.mmd)
@@ -41,6 +70,8 @@ See also: [Relations/ClassRelations.mmd](Relations/ClassRelations.mmd) for the f
 | `erAktivSelv`     | bool | Er aktiv selv      | Citizen is digitally active themselves (can be reached directly).  |
 | `erAktivViaAndre` | bool | Er aktiv via andre | Citizen is active via another person (representative/guardian).    |
 | `tildeltFullmakt` | bool | Tildelt fullmakt   | Citizen has granted a power of attorney or lacks consent capacity. |
+
+Source: [ErAktivStatus.mmd](Classes/ErAktivStatus.mmd)
 
 ## Business rules
 
