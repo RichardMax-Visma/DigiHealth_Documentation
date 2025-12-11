@@ -63,13 +63,9 @@ _Prerequisite: run HelsenorgeAktivSjekken to verify the citizen’s digital reac
 | [Citizen-initiated](./DigiHealth/APIs/Ekontakt/Relations/CitizenInitiatedRelations.mmd)   | Citizen → Provider flow |
 | [Provider-initiated](./DigiHealth/APIs/Ekontakt/Relations/ProviderInitiatedRelations.mmd) | Provider → Citizen flow |
 
----
-
 ## Test Environments
 
 Environment reference and endpoints: [Test Environments](./DigiHealth/Test_Environments/Test_Environments.md) (MAS-02, TEST1, TEST2, QA, Prodkopi, PROD).
-
----
 
 ## Quick Reference
 
