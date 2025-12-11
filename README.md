@@ -41,15 +41,38 @@ Check if citizens are digitally active on Helsenorge.
 
 Citizen's entry point for digital healthcare communication.
 
+Helsekontakt consists of three APIs: **Tjenesteoversikt** (AMQP), **Medlemstjenester** (FHIR), and **Notifikasjon Helsekontakt** (AMQP + FHIR).
+
 _Prerequisite: run HelsenorgeAktivSjekken first to confirm the citizen can be reached digitally (self or via representative) before sending notifications/messages._
 
 📁 [Documentation](./APIs/Helsekontakt/)
 
-| Sub-API                                                                      | Tech      | Purpose                          |
-| ---------------------------------------------------------------------------- | --------- | -------------------------------- |
-| [AMQP Tjenesteoversikt](./APIs/Helsekontakt/AMQP%20Tjenesteoversikt/)        | AMQP      | Home care service overview       |
-| [Medlemstjenester](./APIs/Helsekontakt/Medlemstjenester/)                    | FHIR      | Membership-based health services |
-| [AMQP Notifikasjon](./APIs/Helsekontakt/AMQP%20Notifikasjon%20Helsekontakt/) | AMQP+FHIR | General notifications            |
+#### Helsekontakt — Tjenesteoversikt (AMQP)
+
+📁 [Docs](./APIs/Helsekontakt/AMQP%20Tjenesteoversikt/)
+
+| Diagram                                                                            | Description                               |
+| ---------------------------------------------------------------------------------- | ----------------------------------------- |
+| [Flow](./APIs/Helsekontakt/AMQP%20Tjenesteoversikt/AMQP_Tjenesteoversikt_Flow.mmd) | AMQP message flow for home care services  |
+| [Class Relations](./APIs/Helsekontakt/AMQP%20Tjenesteoversikt/Relations/)          | MsgHead and Applikasjonskvittering models |
+
+#### Helsekontakt — Medlemstjenester (FHIR)
+
+📁 [Docs](./APIs/Helsekontakt/Medlemstjenester/)
+
+| Diagram                                                                | Description                                    |
+| ---------------------------------------------------------------------- | ---------------------------------------------- |
+| [Flow](./APIs/Helsekontakt/Medlemstjenester/Medlemstjenester_Flow.mmd) | FHIR bundle flow for membership services       |
+| [Class Relations](./APIs/Helsekontakt/Medlemstjenester/Relations/)     | HealthcareService, Patient, and related models |
+
+#### Helsekontakt — Notifikasjon (AMQP + FHIR)
+
+📁 [Docs](./APIs/Helsekontakt/AMQP%20Notifikasjon%20Helsekontakt/)
+
+| Diagram                                                                                   | Description                                   |
+| ----------------------------------------------------------------------------------------- | --------------------------------------------- |
+| [Flow](./APIs/Helsekontakt/AMQP%20Notifikasjon%20Helsekontakt/AMQP_Notifikasjon_Flow.mmd) | Notification flow with MsgHead + FHIR payload |
+| [Class Relations](./APIs/Helsekontakt/AMQP%20Notifikasjon%20Helsekontakt/Relations/)      | EpisodeOfCare and related models              |
 
 ---
 
