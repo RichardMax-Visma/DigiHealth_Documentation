@@ -4,7 +4,8 @@ Sends an overview of home care services to citizens via AMQP messaging.
 
 **API Name:** `DIALOG_INNBYGGER_TJENESTEOVERSIKT`  
 **Technology:** AMQP  
-**Status:** In Production (since Feb 2017)  
+**Status:** In Production (I DRIFT)  
+**Version:** v1.0 (Feb 3, 2017)  
 **Use case:** Home care services (hjemmetjenester) only
 
 ## When to use
@@ -34,7 +35,7 @@ sequenceDiagram
 	participant HN as 🌐 Helsenorge
 
 	rect rgb(240, 248, 255)
-		Note over Sender,HN: Send Health Contact
+		Note over Sender,HN: Send TjenesteOversikt
 		Sender->>AMQP: TjenesteOversikt Message
 		Note right of Sender: MsgHead + TjenesteOversikt
 		AMQP->>HN: Forward Message
@@ -56,14 +57,7 @@ Classes: [MsgHead](Classes/MsgHead.mmd), [MsgInfo](Classes/MsgInfo.mmd), [Tjenes
 
 ### [MsgHead](Classes/MsgHead.mmd) (Header Message)
 
-| Field      | Norwegian   | English                 |
-| ---------- | ----------- | ----------------------- |
-| `msgId`    | Meldings-ID | Message ID (unique)     |
-| `type`     | Type        | Message type            |
-| `sender`   | Avsender    | Sender info             |
-| `receiver` | Mottaker    | Receiver info           |
-| `patient`  | Pasient     | Patient info            |
-| `ack`      | Kvittering  | Acknowledgment settings |
+`MsgHead` is the Hodemelding wrapper and contains `msgInfo` (header metadata) and the message `document` (payload).
 
 ```mermaid
 %% keep in sync with Classes/MsgHead.mmd
@@ -174,7 +168,7 @@ classDiagram
 
 1. Provider sends `TjenesteOversikt` (MsgHead + payload) via AMQP.
 2. Helsenorge processes and returns `Applikasjonskvittering`.
-3. If citizen is not digitally active, the ack indicates failure.
+3. If processing fails, the receipt indicates failure (status/errorCode).
 
 ## Standards
 
@@ -183,5 +177,6 @@ classDiagram
 
 ## Sources
 
+- API-katalog (status/version): https://helsenorge.atlassian.net/wiki/spaces/HELSENORGE/pages/1348174674/API-katalog
 - Helsenorge for kommuner – hjemmetjenesten: https://helsenorge.atlassian.net/wiki/spaces/HELSENORGE/pages/1875804167/Helsenorge+for+kommuner+-+hjemmetjenesten
 - Meldingsutveksling med Helsenorge: https://helsenorge.atlassian.net/wiki/spaces/HELSENORGE/pages/690913297/Meldingsutveksling+med+Helsenorge

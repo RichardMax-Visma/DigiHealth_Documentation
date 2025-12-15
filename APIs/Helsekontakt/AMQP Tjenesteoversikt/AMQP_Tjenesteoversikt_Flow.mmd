@@ -4,7 +4,7 @@ sequenceDiagram
     participant HN as 🌐 Helsenorge
 
     rect rgb(240, 248, 255)
-        Note over Sender,HN: Send Health Contact
+        Note over Sender,HN: Send TjenesteOversikt
         Sender->>AMQP: TjenesteOversikt Message
         Note right of Sender: MsgHead + TjenesteOversikt
         AMQP->>HN: Forward Message
