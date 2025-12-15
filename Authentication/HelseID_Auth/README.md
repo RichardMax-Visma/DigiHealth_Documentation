@@ -4,27 +4,28 @@ HelseID is Norway's national authentication service for the health sector, provi
 
 ## When to use
 
-- Any system-to-system (machine-to-machine) API call to NHN/Helsenorge.
-- User authentication flows for healthcare applications.
+- Any system-to-system (machine-to-machine) API call to NHN/Helsenorge where HelseID is required.
+- This document focuses on system-to-system access; end-user login on Helsenorge can still involve other components (see notes below).
 
 See also: [Test Environments](../../Test_Environments/) for endpoint URLs per environment.
 
 ## ⚠️ Important
 
-**As of December 1, 2025, all healthcare actors must use HelseID for system-to-system API access.**
+**Requirement deadline: 1.12.2025 — HelseID is required for system-to-system access to Helsenorge/NHN APIs (with documented exceptions).**
+
+Notes from the requirement documentation:
+
+- Helsenorge historically had an "Innbygger STS"; HelseID is now the required mechanism for system-to-system access.
+- "Innbygger STS" can still be relevant for Helsenorge login flows.
+- Exceptions exist for certain clients (see the "Unntak" section in the source).
 
 ## Authentication types
 
-### 1. User Authentication
-
-- For end-user login flows
-- Supports Norwegian national ID providers
-
-### 2. System-to-System (Machine-to-Machine)
+### System-to-System (Machine-to-Machine)
 
 - For server-to-server API calls
 - Uses OAuth 2.0 client credentials flow
-- Required for all NHN API integrations
+- Required when accessing NHN/Helsenorge APIs in system-to-system context (per requirements)
 
 ## Implementation Requirements
 
@@ -58,12 +59,7 @@ See also: [Test Environments](../../Test_Environments/) for endpoint URLs per en
 
 ## Scopes
 
-Request only the scopes needed for your integration:
-
-- Helsenorge APIs
-- AMQP messaging
-- FHIR resources
-- Specific service endpoints
+Request only the scopes required by the specific API(s) you are calling. Scope names and availability are defined by NHN/Helsenorge for each API/client and may vary by environment.
 
 ## Sources
 
@@ -72,7 +68,7 @@ Request only the scopes needed for your integration:
 
 ## Environment-Specific HelseID Endpoints
 
-| Environment | HelseID Base URL                |
+| Environment | HelseID STS URL                 |
 | ----------- | ------------------------------- |
 | TEST1       | https://helseid-sts.test.nhn.no |
 | TEST2       | https://helseid-sts.test.nhn.no |
