@@ -20,7 +20,7 @@ Transport security for Helsenorge messaging (E-kontakt, Helsekontakt AMQP flows)
 - AMQP: `tb.test.nhn.no:5671`
 - HelseID token (if you also call REST/FHIR APIs): `https://helseid-sts.test.nhn.no/connect/token`
 
-## References
+## References / Sourdes
 
 - Meldingsutveksling med Helsenorge: https://helsenorge.atlassian.net/wiki/spaces/HELSENORGE/pages/690913297/Meldingsutveksling+med+Helsenorge
 - Krav til oppdatert versjon av Helsenorge Messaging: https://helsenorge.atlassian.net/wiki/spaces/HELSENORGE/pages/2904064001/Krav+til+oppdatert+versjon+av+Helsenorge+Messaging
