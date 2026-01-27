@@ -1,3 +1,53 @@
+```mermaid
+classDiagram
+
+class HealthcareService {
+  +string identifier
+  +bool active
+  +string name
+  +string comment
+  +Reference providedBy
+  +Reference location
+  +Endpoint endpoint
+}
+
+class Organization {
+  +string identifier
+  +string name
+  +Endpoint endpoint
+}
+
+class Location {
+  +Address address
+  +Telecom[] telecom
+}
+
+class Endpoint {
+  +string identifier
+  +string id
+}
+
+class Address {
+  +string line
+  +string city
+  +string postalCode
+}
+
+class Telecom {
+  +string system
+  +string value
+}
+
+HealthcareService --> Organization : providedBy
+HealthcareService --> Location : location
+HealthcareService --> Endpoint : endpoint
+Organization --> Endpoint : endpoint
+Location --> Address : address
+Location --> Telecom : telecom
+
+note "Identifier notes: `Endpoint.identifier` uses HER-id OID `urn:oid:2.16.578.1.12.4.1.2` for service endpoints; `Organization.identifier` uses organisation OIDs (e.g. `urn:oid:2.16.578.1.12.4.1.4.101`). Use these identifiers to link `HealthcareService.providedBy` and `Patient.contact.organization`."
+
+```
 classDiagram
 
 class HealthcareService {

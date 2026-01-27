@@ -1,3 +1,19 @@
+```mermaid
+classDiagram
+class Organization {
+  +string identifier
+  +string name
+  +Endpoint endpoint
+}
+
+class Identifier {
+  +string system
+  +string value
+}
+
+note for Organization "`Organization.identifier` examples use organisation identifier OIDs (e.g. `urn:oid:2.16.578.1.12.4.1.4.101`) — use these to link `HealthcareService.providedBy` and `Patient.contact.organization`."
+
+```
 classDiagram
 class Organization {
   +string identifier

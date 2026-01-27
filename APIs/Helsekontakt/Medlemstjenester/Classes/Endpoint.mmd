@@ -3,3 +3,10 @@ class Endpoint {
   +string identifier
   +string id
 }
+class Identifier {
+  +string system
+  +string value
+}
+
+note for Endpoint "`Endpoint.identifier` in examples is an Identifier with `system` set to a HER-id OID (e.g. `urn:oid:2.16.578.1.12.4.1.2`) and `value` set to the numeric HER-id (often level 2 for service endpoints)."
+
