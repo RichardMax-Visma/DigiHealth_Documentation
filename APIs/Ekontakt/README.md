@@ -225,3 +225,27 @@ classDiagram
 - Innholdsstandarder: https://helsenorge.atlassian.net/wiki/spaces/HELSENORGE/pages/1348174289/Innholdsstandarder
 - Krav til bruk av kommunikasjonsparametre: https://helsenorge.atlassian.net/wiki/spaces/HELSENORGE/pages/1348174375/Krav+til+bruk+av+kommunikasjonsparametre
 - AMQP eKontakt (official): https://helsenorge.atlassian.net/wiki/spaces/HELSENORGE/pages/1449328772/AMQP+eKontakt
+
+## MsgHead / MsgInfo (requirements from eKontakt PDF)
+
+- `MsgHead/MsgInfo/Type`: REQUIRED — use `DIALOG_INNBYGGER_EKONTAKT` (DN="Dialog med innbygger - eKontakt").
+- `MsgHead/MsgInfo/Ack`: REQUIRED — examples use `<Ack DN="Ja" V="J"/>` to request an application receipt.
+- `MsgHead/MsgInfo/ConversationRef`: REQUIRED when sending notices referencing an existing conversation (e.g., unread notice references).
+
+Example MsgHead snippet (XML):
+
+```xml
+<MsgHead xmlns="http://www.kith.no/xmlstds/msghead/2006-05-24">
+	<MsgInfo>
+		<MsgId>9713cf31-f4a0-49da-b4d6-75887502f0d3</MsgId>
+		<Type V="DIALOG_INNBYGGER_EKONTAKT" DN="Dialog med innbygger - eKontakt" />
+		<Ack DN="Ja" V="J" />
+		<!-- ConversationRef required for notifications referencing existing threads -->
+	</MsgInfo>
+</MsgHead>
+```
+
+## Vedlegg (attachments)
+
+- `Vedlegg` is described in the eKontakt PDF as optional in general, but may be mandatory for some response types; validate per message type. When present, attachments are encoded per the `Vedlegg` class and MAY be presented to the citizen.
+
