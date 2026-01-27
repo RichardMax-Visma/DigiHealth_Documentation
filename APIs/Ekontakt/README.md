@@ -224,3 +224,4 @@ classDiagram
 - Teknisk integrasjon med Helsenorge og PVK: https://helsenorge.atlassian.net/wiki/spaces/HELSENORGE/pages/691175425/Teknisk+integrasjon+med+Helsenorge+og+Personvernkomponenten+PVK
 - Innholdsstandarder: https://helsenorge.atlassian.net/wiki/spaces/HELSENORGE/pages/1348174289/Innholdsstandarder
 - Krav til bruk av kommunikasjonsparametre: https://helsenorge.atlassian.net/wiki/spaces/HELSENORGE/pages/1348174375/Krav+til+bruk+av+kommunikasjonsparametre
+- AMQP eKontakt (official): https://helsenorge.atlassian.net/wiki/spaces/HELSENORGE/pages/1449328772/AMQP+eKontakt
