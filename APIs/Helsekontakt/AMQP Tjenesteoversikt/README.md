@@ -114,6 +114,13 @@ classDiagram
 | Field                      | Norwegian                 | English                           |
 | -------------------------- | ------------------------- | --------------------------------- |
 | `id`                       | ID                        | Service identifier                |
+| `herId`                    | HERId                     | HER identifier used by Helsenorge |
+| `tjenesteOmrade`           | TjenesteOmråde            | Service area/type (code, 1)       |
+| `tjenesteLevertAv`         | Tjeneste levert av        | Provider name (0..1)              |
+| `tjenesteTlf`              | Tjeneste telefon          | Provider telephone (0..1)         |
+| `tjenesteURL`              | Tjeneste URL              | Provider URL (0..1)               |
+| `fraDato`                  | Startdato                 | Service start date (1)            |
+| `sluttDato`                | Sluttdato                 | Service end date (0..1)           |
 | `navn`                     | Navn                      | Service name                      |
 | `digitalInnbyggertjeneste` | Digital innbyggertjeneste | Is digital citizen service (bool) |
 | `relaterteRoller`          | Relaterte roller          | Related roles/personnel           |
@@ -123,6 +130,7 @@ classDiagram
 classDiagram
 	class Tjeneste {
 		+string id
+		+string herId
 		+string navn
 		+bool digitalInnbyggertjeneste
 		+RelaterteRoller relaterteRoller
@@ -174,7 +182,6 @@ classDiagram
 
 - Hodemelding v1.2: https://www.ehelse.no/standardisering/standarder/standard-for-hodemelding
 - Applikasjonskvittering: https://www.ehelse.no/standardisering/standarder/standard-for-applikasjonskvittering
-
 
 ## Sources
 

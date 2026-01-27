@@ -27,6 +27,13 @@ class TjenesteOversikt {
 
 class Tjeneste {
 	+string id
+	+string herId
+	+string tjenesteOmrade
+	+string tjenesteLevertAv
+	+string tjenesteTlf
+	+string tjenesteURL
+	+date fraDato
+	+date sluttDato
 	+string navn
 	+bool digitalInnbyggertjeneste
 	+RelaterteRoller relaterteRoller
