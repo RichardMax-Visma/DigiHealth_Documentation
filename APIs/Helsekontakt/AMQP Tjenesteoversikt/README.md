@@ -175,8 +175,10 @@ classDiagram
 - Hodemelding v1.2: https://www.ehelse.no/standardisering/standarder/standard-for-hodemelding
 - Applikasjonskvittering: https://www.ehelse.no/standardisering/standarder/standard-for-applikasjonskvittering
 
+
 ## Sources
 
+- AMQP Tjenesteoversikt: https://helsenorge.atlassian.net/wiki/spaces/HELSENORGE/pages/1481736202/AMQP+Tjenesteoversikt
 - API-katalog (status/version): https://helsenorge.atlassian.net/wiki/spaces/HELSENORGE/pages/1348174674/API-katalog
 - Helsenorge for kommuner – hjemmetjenesten: https://helsenorge.atlassian.net/wiki/spaces/HELSENORGE/pages/1875804167/Helsenorge+for+kommuner+-+hjemmetjenesten
 - Meldingsutveksling med Helsenorge: https://helsenorge.atlassian.net/wiki/spaces/HELSENORGE/pages/690913297/Meldingsutveksling+med+Helsenorge
