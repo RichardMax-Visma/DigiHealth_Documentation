@@ -7,7 +7,7 @@ Mermaid diagrams and documentation for Norsk Helsenett (NHN) integrations.
 ## Spike goal (phase 1)
 
 - High-level objective: enable secure, bidirectional messaging between citizens (via Helsenorge/DigiHelse) and municipal providers.
-- Approach/services: use E-kontakt AMQP for messaging; use HelsenorgeAktivSjekken to check digital reachability; add Helsekontakt variants only if NHN requires them.
+- Approach/services: use E-kontakt AMQP for messaging; use HelsenorgeAktivSjekken to check digital reachability; add Helsekontakt variants only if NHN requires them (use **Notifikasjon Helsekontakt** for new implementations, NOT Tjenesteoversikt).
 - Access prerequisites (blocking): request HelseID client credentials (client ID/secret + scopes for test) and NHN AMQP cert/key + queue/vhost config so we can connect to test and validate flows.
 - Working mode: start in test environments; confirm scopes, queues, and payload shapes before production.
 
@@ -46,13 +46,15 @@ Check if citizens are digitally active on Helsenorge.
 
 Citizen's entry point for digital healthcare communication.
 
-Helsekontakt consists of three APIs: **Tjenesteoversikt** (AMQP), **Medlemstjenester** (REST + FHIR), and **Notifikasjon Helsekontakt** (AMQP + FHIR).
+Helsekontakt consists of three APIs: **Tjenesteoversikt** (AMQP) ⚠️ _deprecated_, **Medlemstjenester** (REST + FHIR), and **Notifikasjon Helsekontakt** (AMQP + FHIR).
 
 _Prerequisite: run HelsenorgeAktivSjekken first to confirm the citizen can be reached digitally (self or via representative) before sending notifications/messages._
 
 📁 [Documentation](./APIs/Helsekontakt/)
 
-#### Helsekontakt — Tjenesteoversikt (AMQP)
+#### Helsekontakt — Tjenesteoversikt (AMQP) ⚠️ DEPRECATED
+
+> **⚠️ This API is deprecated and should NOT be used by new actors.** Use [Notifikasjon Helsekontakt](#helsekontakt--notifikasjon-amqp--fhir) instead.
 
 📁 [Docs](./APIs/Helsekontakt/AMQP%20Tjenesteoversikt/)
 
@@ -101,23 +103,23 @@ Environment reference and endpoints: [Test Environments](./Test_Environments/) (
 
 ## Quick Reference
 
-| API                                                                          | Tech      | Purpose                              |
-| ---------------------------------------------------------------------------- | --------- | ------------------------------------ |
-| [HelsenorgeAktivSjekken](./APIs/HelsenorgeAktivSjekken/)                     | REST      | Check if citizen is digitally active |
-| [AMQP Tjenesteoversikt](./APIs/Helsekontakt/AMQP%20Tjenesteoversikt/)        | AMQP      | Home care health contacts            |
-| [Medlemstjenester](./APIs/Helsekontakt/Medlemstjenester/)                    | REST+FHIR | Membership-based health services     |
-| [AMQP Notifikasjon](./APIs/Helsekontakt/AMQP%20Notifikasjon%20Helsekontakt/) | AMQP+FHIR | General health contact notifications |
-| [E-kontakt](./APIs/Ekontakt/)                                                | AMQP      | Administrative citizen messaging     |
+| API                                                                          | Tech      | Purpose                              | Status                  |
+| ---------------------------------------------------------------------------- | --------- | ------------------------------------ | ----------------------- |
+| [HelsenorgeAktivSjekken](./APIs/HelsenorgeAktivSjekken/)                     | REST      | Check if citizen is digitally active | ✅ Active               |
+| [AMQP Tjenesteoversikt](./APIs/Helsekontakt/AMQP%20Tjenesteoversikt/)        | AMQP      | Home care health contacts            | ⚠️ **DEPRECATED**       |
+| [Medlemstjenester](./APIs/Helsekontakt/Medlemstjenester/)                    | REST+FHIR | Membership-based health services     | ✅ Active               |
+| [AMQP Notifikasjon](./APIs/Helsekontakt/AMQP%20Notifikasjon%20Helsekontakt/) | AMQP+FHIR | General health contact notifications | ✅ Active (Recommended) |
+| [E-kontakt](./APIs/Ekontakt/)                                                | AMQP      | Administrative citizen messaging     | ✅ Active               |
 
 ### Auth per API (quick view)
 
-| API                                                                                  | Tech      | Auth                                                                                         |
-| ------------------------------------------------------------------------------------ | --------- | -------------------------------------------------------------------------------------------- |
-| [HelsenorgeAktivSjekken](./APIs/HelsenorgeAktivSjekken/)                             | REST      | [HelseID (tokens)](./Authentication/HelseID_Auth/)                                           |
-| [Helsekontakt Medlemstjenester](./APIs/Helsekontakt/Medlemstjenester/)               | REST+FHIR | [HelseID (tokens)](./Authentication/HelseID_Auth/)                                           |
-| [Helsekontakt Tjenesteoversikt](./APIs/Helsekontakt/AMQP%20Tjenesteoversikt/)        | AMQP      | [AMQP mTLS](./Authentication/AMQP_Auth/)                                                     |
-| [Helsekontakt Notifikasjon](./APIs/Helsekontakt/AMQP%20Notifikasjon%20Helsekontakt/) | AMQP+FHIR | [AMQP mTLS](./Authentication/AMQP_Auth/); [HelseID (tokens)](./Authentication/HelseID_Auth/) |
-| [E-kontakt](./APIs/Ekontakt/)                                                        | AMQP      | [AMQP mTLS](./Authentication/AMQP_Auth/)                                                     |
+| API                                                                                  | Tech      | Auth                                                                                         | Status            |
+| ------------------------------------------------------------------------------------ | --------- | -------------------------------------------------------------------------------------------- | ----------------- |
+| [HelsenorgeAktivSjekken](./APIs/HelsenorgeAktivSjekken/)                             | REST      | [HelseID (tokens)](./Authentication/HelseID_Auth/)                                           | ✅ Active         |
+| [Helsekontakt Medlemstjenester](./APIs/Helsekontakt/Medlemstjenester/)               | REST+FHIR | [HelseID (tokens)](./Authentication/HelseID_Auth/)                                           | ✅ Active         |
+| [Helsekontakt Tjenesteoversikt](./APIs/Helsekontakt/AMQP%20Tjenesteoversikt/)        | AMQP      | [AMQP mTLS](./Authentication/AMQP_Auth/)                                                     | ⚠️ **DEPRECATED** |
+| [Helsekontakt Notifikasjon](./APIs/Helsekontakt/AMQP%20Notifikasjon%20Helsekontakt/) | AMQP+FHIR | [AMQP mTLS](./Authentication/AMQP_Auth/); [HelseID (tokens)](./Authentication/HelseID_Auth/) | ✅ Active         |
+| [E-kontakt](./APIs/Ekontakt/)                                                        | AMQP      | [AMQP mTLS](./Authentication/AMQP_Auth/)                                                     | ✅ Active         |
 
 ## Viewing Diagrams
 
